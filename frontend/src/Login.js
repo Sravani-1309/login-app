@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
 
@@ -21,8 +22,10 @@ function Login() {
       if(response.status === 200){
 
         localStorage.setItem("username",username);
-
-        window.location.href="/welcome";
+        
+        const navigate = useNavigate();
+        navigate("/welcome");
+        
       }
 
     } catch(error){
