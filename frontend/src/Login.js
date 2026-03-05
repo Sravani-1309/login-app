@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+const Login =() => {
+
+  const navigate = useNavigate();
 
   const [username,setUsername] = useState("");
   const [password,setPassword] = useState("");
@@ -22,8 +24,6 @@ function Login() {
       if(response.status === 200){
 
         localStorage.setItem("username",username);
-        
-        const navigate = useNavigate();
         navigate("/welcome");
         
       }
